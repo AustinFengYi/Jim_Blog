@@ -1,4 +1,4 @@
-/*CSS 基礎樣式設定*/ 
+/*CSS 基礎樣式設定*/  
 html, body {
   width: 100%;
   height: 100%;
@@ -94,6 +94,80 @@ img {
 .nav-primary li a:hover{
   color: #FDF5E6;
   transition: .3s linear;
+}
+
+/*=======================首頁==============================
+=====================================================*/
+/*設定 index-corousel的 CSS 樣式*/
+.index-corousel{
+  padding:100px 0 50px 0;
+  background-color: #f9f9f9;
+}
+
+#myCarousel{  
+  background: #686a6e;
+  height: 450px;
+}
+
+.slide-wrapper{
+  padding: 10%;
+  margin-top: -50px;
+}
+
+.slide-content{
+  color: #fff;
+}
+
+.slide-image .thumbnail img{
+  width: 100%;
+  height: 300px;
+}
+
+.slide-content p{
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.slide-content a{
+  margin-top: 10px;
+} 
+
+/*設定 最新文章 post-content 的CSS 樣式*/
+.post-content{
+  padding-top: 20px;
+  background-color: #f9f9f9;
+  padding-bottom:20px;
+}
+
+.post-content h4{
+  opacity: 0.8;
+  background-color:#990000;
+  padding: 25px;
+  color: #fff;
+  margin-bottom: 10px;
+  font-size:25px;
+  letter-spacing:6px;
+}
+
+/*設定 post 的css樣式內容*/
+.post{
+  //background-color: #f9f9f9;
+}
+.post .post-item{
+  margin-top: 50px;
+  height: 450px;
+  padding: 6px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  }
+
+.post .post-item:hover{
+  }
+
+ .post .post-item img{
+  padding-top: 5px;
+  height: 380px;
+  width: 100%;
 }
 
 

@@ -1,0 +1,242 @@
+<style>
+  .post{
+    height: 450px;
+    width: 100%;
+    font-family: 'intro';
+    margin: 0;
+    padding: 0;
+  }
+
+  .post-item{
+    position: relative;
+  }
+
+  .post-item .post-shadow{
+    height: 380px;
+    width: 0;
+    top:10px;
+    background: rgba(103,58,183,0.71);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: .9s ease;
+  }
+
+  .post-item:hover .post-shadow{
+    width: 98%;
+    transition: 1.2s ease;
+  }
+
+  .post-item .post-shadow h4{
+    letter-spacing: 2px;
+    color: #fff;
+    margin-top: 25px;
+    border: 3px solid #fff;
+    padding: 10px 30px;
+    font-size: 20px;
+  }
+</style>
+
+
+
+<!--  Index Corousel --> 
+<section class="index-corousel">
+  <div class="container">
+    <div class="col-md-12">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <!--first item-->
+        <div class="item active">
+          <div class="container">
+
+            <div class="slide-wrapper">
+              <div class="col-md-6">
+                <div class="slide-image">
+                  <div class="thumbnail">
+                    <!--img src="image/slide/slide-1.jpg" alt="slide-1"-->
+                    <%= image_tag ("image/slide/slide-1.jpg"), alt: 'avatar' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="slide-content">
+                  <h3>實驗室獲獎</h3>
+                  <p>恭賀碩士生黃志翔陳彥橋獲得2017全國工業節能創意實作競賽第二名</p>
+                  <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--second item-->
+        <div class="item">
+          <div class="container">
+
+            <div class="slide-wrapper">
+              <div class="col-md-6">
+                <div class="slide-image">
+                  <div class="thumbnail">
+                    <!--img src="image/slide/slide-2.jpg" alt="slide-1"-->
+                    <%= image_tag ("image/slide/slide-2.jpg"), alt: 'avatar' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="slide-content">
+                  <h3>2013年優良導師獲獎</h3>
+                  <p>恭賀陳志銘教授榮獲2013年優良導師獎</p>
+                  <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>--> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--third item-->
+        <div class="item">
+          <div class="container">
+
+            <div class="slide-wrapper">
+              <div class="col-md-6">
+                <div class="slide-image">
+                  <div class="thumbnail">
+                    <!--img src="image/slide/slide-3.jpg" alt="slide-1"-->
+                    <%= image_tag ("image/slide/slide-3.jpg"), alt: 'avatar' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="slide-content">
+                  <h3>Research Highlight</h3>
+                  <p>In this paper, we demonstrate a simple approach of self-assembled process to form a very smooth and compacted TiO2 underlayer film from ultrafine titanium oxide (TiO2) nanocrystals with dimension of 4 nm for improving the electrical properties and device performances of dye-sensitized solar cells (DSSCs).</p>
+                  <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--fourth item-->
+        <div class="item">
+          <div class="container">
+            <div class="slide-wrapper">
+              <div class="col-md-6">
+                <div class="slide-image">
+                  <div class="thumbnail">
+                    <!--img src="image/slide/slide-4.jpg" alt="slide-1"-->
+                    <%= image_tag ("image/slide/slide-4.jpg"), alt: 'avatar' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="slide-content">
+                  <h3>吉甫學長返校演講-2016.5.26</h3>
+                  <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>-->
+                  <p>吉甫學長返校演講</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>  
+</section>
+
+<!-- 標籤 post-content -->  
+<section class="post-content">
+  <div class="container">
+    <h4 class="text-center">最新文章</h4>
+  </div>
+</section>
+
+<!-- 最新文章post-->
+<section class="post">
+  <div class="container">
+    <!-- 新增相簿list-2018-->
+    <div class="post-item col-xs-12 col-sm-6 col-md-6">
+      <!--a href="#2018"><img src="/image/post/2018.jpg" alt=""></a-->
+      <a href="#2018"><%= image_tag ("image/post/work-1.jpg"), alt: 'avatar' %></a>
+      <div class="post-shadow">
+        <h4 class="text-center">Year 2018</h4>
+      </div>
+      <h4 class="text-center">Year 2018</h4>
+    </div>
+
+    <!-- 新增相簿list-2017-->
+    <div class="post-item col-xs-12 col-sm-6 col-md-6">
+      <!--a href="#2017"><img src="/image/post/2017.jpg" alt=""></a-->
+      <a href="#2017"><%= image_tag ("image/post/work-1.jpg"), alt: 'avatar' %></a>
+      <div class="post-shadow">
+        <h4 class="text-center">Year 2018</h4>
+      </div>
+    </div>
+    
+    <!-- 新增相簿list-2016-->
+    <div class="post-item col-xs-12 col-sm-6 col-md-6">
+      <!--a href="#2016"><img src="/image/post/2016.jpg" alt=""></a-->
+      <a href="#2016"><%= image_tag ("image/post/work-1.jpg"), alt: 'avatar' %></a>
+      <div class="post-shadow">
+        <h4 class="text-center">Year 2018</h4>
+      </div>
+    </div>
+
+    <!-- 新增相簿list-2015-->
+    <div class="post-item col-xs-12 col-sm-6 col-md-6">
+      <!--a href="#2015"><img src="/image/post/2015.jpg" alt=""></a-->
+      <a href="#2015"><%= image_tag ("image/post/work-1.jpg"), alt: 'avatar' %></a>
+      <div class="post-shadow">
+        <h4 class="text-center">Year 2018</h4>
+      </div>
+    </div>
+
+    <!-- 新增相簿list-2014-->
+    <div class="post-item col-xs-12 col-sm-6 col-md-6">
+      <!--a href="#2014"><img src="/image/post/2014.jpg" alt=""></a-->
+      <a href="#2014"><%= image_tag ("image/post/work-1.jpg"), alt: 'avatar' %></a>
+      <div class="post-shadow">
+        <h4 class="text-center">Year 2018</h4>
+      </div>
+    </div>
+
+    <!-- 新增相簿list-2013-->
+    <div class="post-item col-xs-12 col-sm-6 col-md-6">
+      <!--a href="#2013"><img src="/image/post/2013.jpg" alt=""></a-->
+      <a href="#2013"><%= image_tag ("image/post/work-1.jpg"), alt: 'avatar' %></a>
+      <div class="post-shadow">
+        <h4 class="text-center">Year 2018</h4>
+      </div>
+    </div>
+    
+    
+    <div class="clearfix"></div>
+
+  </div>
+</section>
