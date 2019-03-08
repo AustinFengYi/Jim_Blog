@@ -12,10 +12,6 @@ Rails.application.routes.draw do
     end
 
     collection do
-      get :teamleader
-    end
-
-    collection do
       get :introduction
     end
 
