@@ -1,46 +1,3 @@
-<style>
-  .post{
-    height: 450px;
-    width: 100%;
-    font-family: 'intro';
-    margin: 0;
-    padding: 0;
-  }
-
-  .post-item{
-    position: relative;
-  }
-
-  .post-item .post-shadow{
-    height: 380px;
-    width: 0;
-    top:10px;
-    background: rgba(103,58,183,0.71);
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transition: .9s ease;
-  }
-
-  .post-item:hover .post-shadow{
-    width: 98%;
-    transition: 1.2s ease;
-  }
-
-  .post-item .post-shadow h4{
-    letter-spacing: 2px;
-    color: #fff;
-    margin-top: 25px;
-    border: 3px solid #fff;
-    padding: 10px 30px;
-    font-size: 20px;
-  }
-</style>
-
-
-
 <!--  Index Corousel --> 
 <section class="index-corousel">
   <div class="container">
@@ -72,8 +29,8 @@
 
               <div class="col-md-6">
                 <div class="slide-content">
-                  <h3>實驗室獲獎</h3>
-                  <p>恭賀碩士生黃志翔陳彥橋獲得2017全國工業節能創意實作競賽第二名</p>
+                  <h3>Lorem ipsum dolor sit.</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore dolor, cupiditate consectetur veritatis incidunt ratione!</p>
                   <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>-->
                 </div>
               </div>
@@ -97,8 +54,8 @@
 
               <div class="col-md-6">
                 <div class="slide-content">
-                  <h3>2013年優良導師獲獎</h3>
-                  <p>恭賀陳志銘教授榮獲2013年優良導師獎</p>
+                  <h3>Lorem ipsum dolor sit.</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste assumenda corporis, sequi.</p>
                   <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>--> </div>
               </div>
             </div>
@@ -145,9 +102,9 @@
 
               <div class="col-md-6">
                 <div class="slide-content">
-                  <h3>吉甫學長返校演講-2016.5.26</h3>
+                  <h3>Lorem ipsum dolor sit.</h3>
                   <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>-->
-                  <p>吉甫學長返校演講</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
               </div>
             </div>
@@ -170,16 +127,11 @@
   </div>  
 </section>
 
-<!-- 標籤 post-content -->  
-<section class="post-content">
-  <div class="container">
-    <h4 class="text-center">最新文章</h4>
-  </div>
-</section>
-
 <!-- 最新文章post-->
 <section class="post">
   <div class="container">
+    <div class="post-title text-center"><h4>最新文章</h4></div>
+
     <!-- 新增相簿list-2018-->
     <div class="post-item col-xs-12 col-sm-6 col-md-6">
       <!--a href="#2018"><img src="/image/post/2018.jpg" alt=""></a-->
@@ -234,10 +186,6 @@
         <h4 class="text-center">Year 2018</h4>
       </div>
     </div>
-    
-    
-    <div class="clearfix"></div>
-
   </div>
 </section>
 
@@ -247,6 +195,7 @@
     <!-- dashboard 左邊 (熱門文章) -->  
     <div class="dashboard-left col-md-6">
       <div class="left-title"><h4 class="text-center">熱門文章</h4></div>
+
       <!-- 文章 1  --> 
       <div class="left-item">
         <div class="left-item-img col-md-3">
@@ -270,7 +219,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, vel.
         </div>
       </div>
-
+      
       <div class="clearfix"></div>
 
       <!-- 文章 3  --> 
@@ -317,7 +266,7 @@
       <!-- 文章 3  --> 
       <div class="right-item">
         <div class="right-item-img col-md-3">
-          <%= image_tag ("image/post/work-2.jpg"), alt: 'avatar'%>
+          <%= image_tag ("image/post/work-8.jpg"), alt: 'avatar'%>
         </div>
 
         <div class="right-item-content col-md-9">
@@ -331,13 +280,40 @@
 <!-- 標籤 index-banner -->  
 <section class="index-banner">
   <div class="container">
-    放banner
+    <div class="banner-content">
+      <%= image_tag ("image/2.jpg"), alt: 'avatar'%>
+    </div>
   </div>
 </section>
 
 <!-- 標籤 index-work -->  
 <section class="index-work">
   <div class="container">
-    放作品照片 
+    <div class="work-grid">
+      <div class="grid-box">
+        <%= image_tag ("image/post/work-10.jpg"), alt: 'avatar'%>
+      </div> 
+
+      <div class="grid-box">
+        <%= image_tag ("image/post/work-8.jpg"), alt: 'avatar'%>
+      </div>  
+
+      <div class="grid-box">
+        <%= image_tag ("image/post/work-7.jpg"), alt: 'avatar'%>
+      </div>  
+
+      <div class="grid-box">
+        <%= image_tag ("image/post/work-6.jpg"), alt: 'avatar'%>
+      </div>  
+
+      <div class="grid-box">
+        <%= image_tag ("image/post/work-8.jpg"), alt: 'avatar'%>
+      </div>  
+
+      <div class="grid-box">
+        <%= image_tag ("image/post/work-9.jpg"), alt: 'avatar'%>
+      </div> 
+      
+    </div>
   </div>
 </section>

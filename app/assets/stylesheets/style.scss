@@ -13,6 +13,9 @@ body {
   background-color: #f6f6f6;
 }
 
+.container{
+  width:90%;
+}
 
 * {
   box-sizing: border-box;
@@ -101,7 +104,6 @@ img {
 /*設定 index-corousel的 CSS 樣式*/
 .index-corousel{
   padding:100px 0 50px 0;
-  background-color: #f9f9f9;
 }
 
 #myCarousel{  
@@ -132,43 +134,106 @@ img {
   margin-top: 10px;
 } 
 
-/*設定 最新文章 post-content 的CSS 樣式*/
-.post-content{
-  padding-top: 20px;
-  background-color: #f9f9f9;
-  padding-bottom:20px;
+/*設定 最新文章 post 的CSS 樣式*/
+.post{
+
 }
 
-.post-content h4{
+.post .post-title h4{
   opacity: 0.8;
   background-color:#990000;
   padding: 25px;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size:25px;
   letter-spacing:6px;
 }
 
-/*設定 post 的css樣式內容*/
-.post{
-  //background-color: #f9f9f9;
-}
 .post .post-item{
-  margin-top: 50px;
-  height: 450px;
+  height: 400px;
   padding: 6px;
   border-radius: 4px;
   margin-bottom: 20px;
-  }
+  position: relative;
+}
 
-.post .post-item:hover{
-  }
-
- .post .post-item img{
+.post .post-item img{
   padding-top: 5px;
   height: 380px;
   width: 100%;
 }
 
+.post-item .post-shadow{
+  height: 380px;
+  width: 0;
+  top:8px;
+  background: rgba(103,58,183,0.71);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: .9s ease;
+}
+
+.post-item:hover .post-shadow{
+  width: 98%;
+  transition: 1.2s ease;
+}
+
+.post-item .post-shadow h4{
+  letter-spacing: 2px;
+  color: #fff;
+  margin-top: 25px;
+  border: 3px solid #fff;
+  padding: 10px 30px;
+  font-size: 20px;
+}
+
+/*設定 熱門文章/教學 dashboard 的CSS 樣式*/
+.dashboard{
+  padding-top:20px;
+}
+
+.dashboard .left-title h4,.dashboard .right-title h4{
+  opacity: 0.8;
+  background-color:#990000;
+  padding: 25px;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size:25px;
+  letter-spacing:6px;
+}
+
+.dashboard .left-item,.dashboard .right-item{
+  margin-top: 20px;
+}
+
+/*設定 banner 的CSS 樣式*/
+.index-banner{
+  padding-top: 30px;
+}
+
+/*設定 作品圖陳列 index-work 的CSS 樣式*/
+.index-work{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.index-work .work-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px,1fr));
+  justify-content: center;
+  grid-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.index-work .grid-box img{
+  width: 100%;    
+}
+
+.index-banner .banner-content img{
+  height: 500px;
+}
 
 
