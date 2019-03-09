@@ -1,1 +1,186 @@
-美食攻略
+<style>
+  .banner-gallery{ 
+    margin-top: 70px;
+  }
+  .banner-gallery .banner-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px,1fr));
+    justify-content: center;
+    grid-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  .banner-gallery .grid-box{
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .banner-gallery .grid-box img{
+    width: 100%; 
+    transition: all 1s linear;
+  }
+
+  .banner-gallery .grid-box:hover img{
+    transform: scale(1.4);
+    transition: all 1s linear;
+    filter: brightness(0.4);
+  }
+
+  .banner-gallery .grid-box span{
+    position: absolute;
+    left: 12px;
+    bottom: 20px;
+    color: #fff;
+    font-size: 20px;
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    transform: scaleY(0);
+    transition: all .3s linear;
+  }
+
+  .banner-gallery .grid-box:hover span{
+    transform: scaleY(1);
+    transition: all .3s linear;
+  }
+
+  .travel-album{
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .travel-album table img,.travel-album table h4{
+    cursor: pointer;
+  }
+</style>
+
+<section class="banner-gallery">
+  <div class="container">
+    <div class="banner-grid col-md-12">
+      <div class="grid-box">
+        <%= image_tag ("image/sample-1.png"), alt: 'avatar'%>
+        <span>there is some words</span>
+      </div> 
+      
+      <div class="grid-box">
+        <%= image_tag ("image/sample-1.png"), alt: 'avatar'%>
+        <span>there is some words</span>
+      </div> 
+
+      <div class="grid-box">
+        <%= image_tag ("image/sample-1.png"), alt: 'avatar'%>
+        <span>there is some words</span>
+      </div> 
+
+      <div class="grid-box">
+        <%= image_tag ("image/sample-1.png"), alt: 'avatar'%>
+        <span>there is some words</span>
+      </div> 
+
+      <div class="grid-box">
+        <%= image_tag ("image/sample-1.png"), alt: 'avatar'%>
+        <span>there is some words</span>
+      </div>    
+    </div>
+  </div>
+</section> 
+
+<section class="travel-album">
+  <div class="container">
+    <h4 class="text-center" style="font-size: 30px;letter-spacing: 3px;">美食攻略 : 中式 ( 10 )</h4>
+    
+    <br>
+
+    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
+      <tbody>
+        <tr><!--照片-->
+          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-8.jpg"), alt: 'avatar' %>
+          </td>
+        </tr>
+
+        <tr><!--文字-->
+          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
+      <tbody>
+        <tr><!--照片-->
+          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-8.jpg"), alt: 'avatar' %>
+          </td>
+        </tr>
+
+        <tr><!--文字-->
+          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
+      <tbody>
+        <tr><!--照片-->
+          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-8.jpg"), alt: 'avatar' %>
+          </td>
+        </tr>
+
+        <tr><!--文字-->
+          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
+      <tbody>
+        <tr><!--照片-->
+          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-8.jpg"), alt: 'avatar' %>
+          </td>
+        </tr>
+
+        <tr><!--文字-->
+          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
+      <tbody>
+        <tr><!--照片-->
+          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-8.jpg"), alt: 'avatar' %>
+          </td>
+        </tr>
+
+        <tr><!--文字-->
+          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
+      <tbody>
+        <tr><!--照片-->
+          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-8.jpg"), alt: 'avatar' %>
+          </td>
+        </tr>
+
+        <tr><!--文字-->
+          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
+      <tbody>
+        <tr><!--照片-->
+          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-8.jpg"), alt: 'avatar' %>
+          </td>
+        </tr>
+
+        <tr><!--文字-->
+          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
