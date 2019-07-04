@@ -19,4 +19,6 @@ Rails.application.routes.draw do
       get :drawing
     end
   end
+
+  
 end
