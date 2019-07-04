@@ -1,4 +1,4 @@
-class Admin::BlogsController < ApplicationController
+class Admin::BlogsController < Admin::BaseController
   def index
     
   end
