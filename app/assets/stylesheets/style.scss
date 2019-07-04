@@ -47,12 +47,22 @@ img {
 
 .flash-remind{
   position: absolute;
-  top: 120;
+  top: 71px;
   left: 0;
   right: 0;
 }
 
 /*===========================共同版面===============================*/
+/*===========================管理者登入 devise===============================*/
+.admin-managemant{
+    margin: 200px auto 120px auto;
+    width: 50%;
+}
+.field{
+  margin-top: 8px;
+}
+
+/*=========================== application===============================*/
 /*設定 World Map */
 
 /*設定 Header */
@@ -102,7 +112,7 @@ img {
 /*================================首頁======================================*/
 /*-------設定 index-corousel的 CSS 樣式----------*/
 .index-corousel{
-  padding:100px 0 50px 0;
+  padding:130px 0 50px 0;
 }
 
 #myCarousel{  
