@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root "announcements#index"
-  resources :announcements,only: [:index] do
+  root "blogs#index"
+  resources :blogs,only: [:index] do
     collection do
       get :travelaround
     end
@@ -16,9 +16,15 @@ Rails.application.routes.draw do
     end
 
     collection do
-      get :drawing
+      get :drawing 
     end
   end
 
-  
+  namespace :admin do
+    root "blogs#index"
+    resources :blogs 
+    resources :categories
+  end
+
+
 end

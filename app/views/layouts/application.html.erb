@@ -208,9 +208,9 @@
           <ul class="nav-primary">
             <li><a id="travel">Travel Around</a></li>
             <%#= link_to "Travel Around", travelaround_announcements_path %>
-            <li><%= link_to "Foodies", foodie_announcements_path %></li>
-            <li><%= link_to "About Me", introduction_announcements_path %></li>
-            <li><%= link_to "drawing diary", drawing_announcements_path %></li>
+            <li><%= link_to "Foodies", foodie_blogs_path %></li>
+            <li><%= link_to "About Me", introduction_blogs_path %></li>
+            <li><%= link_to "drawing diary", drawing_blogs_path %></li>
             <li><%= link_to "Search" %></li>
             <li><%= link_to "管理者登入" %></li>
 
@@ -303,17 +303,17 @@
             <!--  清單：sebmenu (去過歐洲的國家) -->
             <div class="world-map__list--europe">
               <div class="world-map__close" style="cursor: pointer;">< BACK</div>
-              <%= link_to "Germany", travelaround_announcements_path, id:"Germany" %>
-              <%= link_to "CzechRepublic", travelaround_announcements_path, id:"CzechRepublic" %>               
+              <%= link_to "Germany", travelaround_blogs_path, id:"Germany" %>
+              <%= link_to "CzechRepublic", travelaround_blogs_path, id:"CzechRepublic" %>               
             </div>
      
             <!--  清單：submenu (去過亞洲的國家) -->
             <div class="world-map__list--asia">
               <div class="world-map__close" style="cursor: pointer;">< BACK</div>
-              <%= link_to "Vietnam", travelaround_announcements_path, id:"Vietnam" %>
-              <%= link_to "Thailand", travelaround_announcements_path, id:"Thailand" %>
-              <%= link_to "SouthKorea", travelaround_announcements_path, id:"SouthKorea" %>
-              <%= link_to "Taiwan", travelaround_announcements_path, id:"Taiwan" %>
+              <%= link_to "Vietnam", travelaround_blogs_path, id:"Vietnam" %>
+              <%= link_to "Thailand", travelaround_blogs_path, id:"Thailand" %>
+              <%= link_to "SouthKorea", travelaround_blogs_path, id:"SouthKorea" %>
+              <%= link_to "Taiwan", travelaround_blogs_path, id:"Taiwan" %>
             </div>
         </div>
     </section>
