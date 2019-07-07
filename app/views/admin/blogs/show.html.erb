@@ -1,0 +1,45 @@
+<style>
+  .admin-show{
+    margin-top: 180px;
+    margin-bottom: 50px;
+  }
+
+  .admin-show h4{
+    letter-spacing: 2px;
+    line-height: 30px;
+    color: black;
+  }
+
+  .admin-show h5{
+    color: black;
+  }
+</style>
+
+<section class="admin-show">
+  <div class="container">
+    <div class="col-md-12">
+      
+      <div class="panel panel-primary">
+        <div class="panel-heading panel-title">
+          <strong><%= @blog.title %></strong>
+        </div>
+
+        <div class="panel-body">
+          <h4><%= simple_format(@blog.description) %></h4>
+        </div>
+
+        <div class="panel-footer">
+          <h5>發布日期：<%= @blog.date %></h5>
+        </div>
+      </div>
+
+      <div>
+        <%= link_to'編輯',edit_admin_blog_path(@blog),class:"btn btn-success" %>
+        <%= link_to '回管理首頁' ,admin_root_path ,class:"btn btn-primary" %>
+        <button type="button" class="btn btn-default">上一則</button>
+     
+        <button type="button" class="btn btn-default">下一則</button>
+      </div>
+    </div>
+  </div>
+</section>
