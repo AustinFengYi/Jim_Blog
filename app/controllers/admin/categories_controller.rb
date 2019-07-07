@@ -2,7 +2,7 @@ class Admin::CategoriesController < Admin::BaseController
   before_action :set_category , only:[:update,:destroy]
 
   def index
-    @categories = Category.order(created_at: :asc)
+    @categories = Category.order(created_at: :desc)
     if params[:id]
       #@category = Category.find(params[:id])
       set_category

@@ -1,0 +1,64 @@
+<style>
+  .category{
+    margin-top: 180px;
+    margin-bottom: 50px;
+  }
+
+  .category-index{
+    margin-bottom: 10px;
+  }
+
+  .category h3{
+    margin-top: 20px;
+  }
+
+  .category-table{
+    margin-top: 20px;
+  }
+</style>
+
+<section class="category">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-7">
+
+        <div class="category-index">
+          <%= link_to "公告消息",admin_root_path %> |
+          <%= link_to "公告分類",admin_categories_path %>
+        </div>
+
+        <div class="form-inline" >
+          <%= form_for [:admin, @category] do |f| %>
+            <div class="form-group">
+              <%= f.text_field :name, placeholder: "Category Name",  class: "form-control" %>
+            </div>
+            <%= f.submit class: "btn btn-primary" %>
+            <%= link_to "Cancel", admin_categories_path,class:"btn btn-danger" %>
+          <% end %>
+        </div>
+
+
+        <h3>文章分類總表</h3>
+        <table class="table table-striped table-bordered category-table">
+          <thead>
+            <tr>
+              <th>Category Name</th>
+              <th>編輯</th>
+              <th>刪除</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @categories.each do |category| %>
+            <tr>
+              <td><%= category.name %></td>
+              <td><%= link_to 'Edit', admin_categories_path(id: category.id) %></td>
+              <td><%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: "Are you sure?"} %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
