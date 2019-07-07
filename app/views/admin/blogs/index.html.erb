@@ -84,7 +84,7 @@
           <% @blogs.each do |blog| %>
           <tr>
             <td class="text-center col-md-2"><%= blog.date %></td>
-            <td class="text-center col-md-2"><%= blog.category.name %></td>
+            <td class="text-center col-md-2"><%= blog.category.name if blog.category.present? %></td>
             <td class="text-center col-md-5"><strong><%= truncate(blog.title,length:25) %></strong></td>
             <td class="text-center col-md-1"><%= link_to 'Show', admin_blog_path(blog) %></td>
             <td class="text-center col-md-1"><%= link_to 'Edit', edit_admin_blog_path(blog) %></td>
