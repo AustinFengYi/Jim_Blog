@@ -12,7 +12,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def show
-    @categories = Category.order(created_at: :asc)
+    @categories = Category.order(created_at: :desc)
     @category = Category.find(params[:id])
     @blogs = @category.blogs.order(created_at: :desc)
   end
