@@ -3,7 +3,7 @@ class Admin::BlogsController < Admin::BaseController
 
   def index
     @blogs = Blog.order(created_at: :desc)
-    @categories = Category.order(created_at: :asc)
+    @categories = Category.order(created_at: :desc)
   end
 
   def new
