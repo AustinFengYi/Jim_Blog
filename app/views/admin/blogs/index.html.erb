@@ -43,6 +43,16 @@
   .admin-announce-navigation{
     margin-top: 5px;
   }
+
+  .table{
+    table-layout: fixed;
+    word-wrap:break-word;
+    }
+
+  .table tbody tr td{
+    vertical-align: middle;
+    font-size: 15px;
+  }
 </style>
 
 <!--  Index 最新消息 --> 
@@ -72,8 +82,9 @@
         <thead>
           <tr>
             <th class="col-md-2 text-center">發布日期</th>
-            <th class="col-md-2 text-center">分類</th>
-            <th class="col-md-5 text-center">標題</th>
+            <th class="col-md-1 text-center">分類</th>
+            <th class="col-md-2 text-center">文章封面</th>
+            <th class="col-md-4 text-center">標題</th>
             <th class="col-md-1 text-center">內容</th>
             <th class="col-md-1 text-center">編輯</th>
             <th class="col-md-1 text-center">刪除</th>
@@ -84,8 +95,9 @@
           <% @blogs.each do |blog| %>
           <tr>
             <td class="text-center col-md-2"><%= blog.date %></td>
-            <td class="text-center col-md-2"><%= blog.category.name if blog.category.present? %></td>
-            <td class="text-center col-md-5"><strong><%= truncate(blog.title,length:25) %></strong></td>
+            <td class="text-center col-md-1"><%= blog.category.name if blog.category.present? %></td>
+            <td class="text-center col-md-2"><%= image_tag(blog.image.url) if blog.image.present? %></td>
+            <td class="text-center col-md-4"><strong><%= truncate(blog.title,length:25) %></strong></td>
             <td class="text-center col-md-1"><%= link_to 'Show', admin_blog_path(blog) %></td>
             <td class="text-center col-md-1"><%= link_to 'Edit', edit_admin_blog_path(blog) %></td>
             <td class="text-center col-md-1"><%= link_to 'Delete', admin_blog_path(blog), method: :delete, data: { confirm: "Are you sure?"} %></td>
