@@ -40,6 +40,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # file uploader
 gem 'carrierwave'
+#用來做圖檔修正
+gem 'mini_magick'
+gem 'ckeditor', '~>4.2', '>=4.2.4'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
