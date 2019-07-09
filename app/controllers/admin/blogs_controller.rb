@@ -2,12 +2,12 @@ class Admin::BlogsController < Admin::BaseController
   before_action :set_blog , only:[:show,:edit,:update,:destroy]
 
   def index
-    @blogs = Blog.where(status: true).order(created_at: :desc)
+    @blogs = Blog.where(status: true).order(created_at: :desc).page(params[:page]).per(20)
     @categories = Category.order(created_at: :desc)
   end
 
   def drafts
-    @blogs = Blog.where(status: false).order(created_at: :desc)
+    @blogs = Blog.where(status: false).order(created_at: :desc).page(params[:page]).per(20)
     @categories = Category.order(created_at: :desc)
   end
 
@@ -71,7 +71,7 @@ class Admin::BlogsController < Admin::BaseController
   def destroy
     #@blog = Blog.find(params[:id])
     @blog.destroy
-    if @post.status == true    
+    if @blog.status == true    
       flash[:notice] ="Blog was successfully deleted"
     else
       flash[:notice] ="Blog Draft was successfully deleted"

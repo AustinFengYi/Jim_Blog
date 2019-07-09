@@ -67,7 +67,7 @@
         <%= link_to "文章分類",admin_categories_path %>
       </div>
 
-      <%= link_to "新增Blog文章",new_admin_blog_path,class:"btn btn-warning" %>
+      <%= link_to "新增Blog文章",new_admin_blog_path,class:"btn btn-success" %>
       
       <div class="admin-announce-navigation">
         <ul class="admin-announce-navigation">
@@ -111,6 +111,10 @@
           <% end %>        
         </tbody>
       </table>
+
+      <div class="text-center">
+        <%= paginate @blogs %>
+      </div> 
     </div>
   </div>
 </section> 
