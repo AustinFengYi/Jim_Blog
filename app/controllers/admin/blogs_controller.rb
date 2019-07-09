@@ -2,7 +2,12 @@ class Admin::BlogsController < Admin::BaseController
   before_action :set_blog , only:[:show,:edit,:update,:destroy]
 
   def index
-    @blogs = Blog.order(created_at: :desc)
+    @blogs = Blog.where(status: true).order(created_at: :desc)
+    @categories = Category.order(created_at: :desc)
+  end
+
+  def drafts
+    @blogs = Blog.where(status: false).order(created_at: :desc)
     @categories = Category.order(created_at: :desc)
   end
 
@@ -12,11 +17,23 @@ class Admin::BlogsController < Admin::BaseController
 
   def create
     @blog = Blog.new(blog_params)
+
+    if params[:commit] == "Save Draft"
+      @blog.status = false
+    else
+      @blog.status = true
+    end
+
     if @blog.save
-      flash[:notice] = "blog was successfully created"
+      if @blog.status == true
+        @blog.save
+        flash[:notice] = "Blog was successfully created"
+      else
+        flash[:notice] = "Blog Draft was successfully created"
+      end
       redirect_to admin_root_path
     else
-      flash.now[:alert] = "blog was failed to create"
+      flash.now[:alert] = "Blog was failed to create"
       render :new
     end
   end
@@ -31,20 +48,35 @@ class Admin::BlogsController < Admin::BaseController
 
   def update 
     #@blog = Blog.find(params[:id])
-    if @blog.update(blog_params)
-      flash[:notice] = "blog was successfully updated"
-      redirect_to admin_blog_path(@blog)
+
+    if params[:commit] == "Save Draft"
+      @blog.status = false
     else
-      flash.now[:alert] = "blog was failed to update"
-      render :edit
-    end 
+      @blog.status = true
+    end
+    
+    if @blog.update(blog_params)
+      if @blog.status == true    
+        flash[:notice] = "Blog was successfully updated"
+      else
+        flash[:notice] = "Blog Draft was successfully updated"
+      end
+      redirect_to admin_blog_path(@blog)    
+    else
+      flash[:notice] = "Failed to update"
+      render :edit 
+    end  
   end
 
   def destroy
     #@blog = Blog.find(params[:id])
     @blog.destroy
+    if @post.status == true    
+      flash[:notice] ="Blog was successfully deleted"
+    else
+      flash[:notice] ="Blog Draft was successfully deleted"
+    end
     redirect_to admin_root_path
-    flash[:alert]="blog was deleted"
   end
 
   private

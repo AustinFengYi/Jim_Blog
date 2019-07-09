@@ -1,6 +1,6 @@
 <style>
   .admin-show{
-    margin-top: 180px;
+    margin-top: 120px;
     margin-bottom: 50px;
   }
 
@@ -18,7 +18,14 @@
 <section class="admin-show">
   <div class="container">
     <div class="col-md-12">
-      
+      <div style="margin-bottom: 15px;">
+        <%= link_to '管理首頁' ,admin_root_path ,class:"btn btn-warning" , style:"width:9%;padding:6px;"%>
+        <%= link_to'編輯頁面',edit_admin_blog_path(@blog),class:"btn btn-success" , style:"width:9%;padding:6px;"%>
+        <button type="button" class="btn btn-default">上一則</button>
+     
+        <button type="button" class="btn btn-default">下一則</button>
+      </div>
+
       <div class="panel panel-primary">
         <div class="panel-heading panel-title">
           <strong><%= @blog.title %></strong>
@@ -31,14 +38,6 @@
         <div class="panel-footer">
           <h5>發布日期：<%= @blog.date %></h5>
         </div>
-      </div>
-
-      <div>
-        <%= link_to'編輯',edit_admin_blog_path(@blog),class:"btn btn-success" %>
-        <%= link_to '回管理首頁' ,admin_root_path ,class:"btn btn-primary" %>
-        <button type="button" class="btn btn-default">上一則</button>
-     
-        <button type="button" class="btn btn-default">下一則</button>
       </div>
     </div>
   </div>
