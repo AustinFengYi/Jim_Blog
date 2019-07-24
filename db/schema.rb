@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_172525) do
+ActiveRecord::Schema.define(version: 2019_07_21_144105) do
 
   create_table "blogs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2019_07_09_172525) do
     t.string "image"
     t.integer "category_id"
     t.boolean "status", default: false
+  end
+
+  create_table "carousels", force: :cascade do |t|
+    t.string "image"
+    t.string "title"
+    t.text "description"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|

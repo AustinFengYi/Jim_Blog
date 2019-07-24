@@ -1,0 +1,50 @@
+<style>
+  .error-box{
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+</style>
+
+<%#====================錯誤訊息提示=============================  %>
+<% if @carousel.errors.any? %>
+  <div class="error-box">
+    <h4>We have some errors here !</h4>
+    <ol>
+      <% @carousel.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ol>
+  </div>        
+<% end %>
+
+
+<%#====================建立實驗室公告表格=============================  %>
+<%= form_for [:admin, @carousel] do |f| %>
+  <div class="field" style="margin-top:30px;">
+    <%= f.label :image, "Image" %><br>
+    <%= image_tag @carousel.image.url ,style:"width:200px;"  if @carousel.image.url.present? %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+  <%= f.label :title, "幻燈片標題" %><br>
+  <%= f.text_field :title ,class:"form-control"%>
+  </div>
+  
+  <div class="field"> 
+  <%= f.label :category_id, "幻燈片分類" %><br>
+  <%= f.collection_select :category_id , Category.all, :id, :name, {prompt: true}, {class: "form-control"}  %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "幻燈片內容" %><br>
+    <%= f.text_area :description, placeholder:"What's on your description ?", rows:"6",class:"form-control"  %>
+  </div>
+
+  <div class="field" style="margin-top:20px;">
+  <%= f.submit 'Submit', class:"btn btn-success", style:"width:9%;padding:6px;"%>
+  <%= link_to 'Cancel',admin_root_path,class:"btn btn-danger" , style:"width:9%;padding:6px;" %>
+  </div>
+      
+<% end %>

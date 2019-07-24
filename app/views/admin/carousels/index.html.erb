@@ -1,0 +1,158 @@
+<style>
+  .carousel{
+    margin-top: 120px;
+    margin-bottom: -50px;
+  }
+
+  .carousel-index{
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .carousel h3{
+    margin-top: 20px; 
+    margin-bottom: 10px;
+  }
+
+  .post-icon {
+    float: right;
+    font-size: 20px;
+    padding: 5px;
+    margin: 0 5px 0 5px;
+    background-color: #fff;
+    border: solid 1px;
+    border-radius: 5px;
+  }
+
+</style>
+
+<section class="carousel">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+
+        <h3>首頁幻燈片總表</h3>
+
+        <%= link_to "新增幻燈片",new_admin_carousel_path,class:"btn btn-success" %>
+
+        <div class="carousel-index">
+          <%= link_to "文章總欄",admin_root_path %> |
+          <%= link_to "文章分類",admin_categories_path %> |
+          <%= link_to "首頁幻燈片",admin_carousels_path %>
+        </div>
+
+        <% @carousels.each do |carousel| %>
+          <%= link_to admin_category_path(carousel.category) do%>
+            <% image_tag carousel.image.url %>
+          <% end %>
+          <h3><%= carousel.category.name %></h3>
+          <%= carousel.title %>
+          <%= simple_format(carousel.description) %>
+        <% end %> 
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!--  Index Corousel --> 
+<section class="index-corousel">
+  <div class="container">
+    <div class="col-md-12">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <% @carousels.each_with_index do |photo, n| %>
+          <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+        <% end %>
+      </ol>
+
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox"> 
+        <!--first item-->
+        <div class="item active">
+          <div class="container">
+
+            <div class="slide-wrapper">
+              <div class="col-md-6">
+                <div class="slide-image">
+                  <div class="thumbnail">
+                    <%= link_to admin_category_path(@carousels.first.category) do%>
+                      <% image_tag @carousels.first.image.url %>
+                    <% end %>
+                  </div>
+                </div>
+              </div> 
+
+              <div class="col-md-6">
+                <div class="slide-content">
+                  <span class="label label-warning"><%= @carousels.first.category.name %></span>
+                  <%= link_to admin_carousel_path(@carousels.first), method: :delete, data: { confirm: "確定要刪除本幻燈片嗎?"} do %>
+                    <span class="glyphicon glyphicon-remove post-icon"></span>
+                  <% end %>
+                  <%= link_to edit_admin_carousel_path(@carousels.first) do %>
+                    <span class="glyphicon glyphicon-pencil post-icon"></span>
+                  <% end %>
+                  <h3><%= @carousels.first.title %></h3>
+                  <p><%= simple_format(@carousels.first.description) %></p>
+                  <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <!--rest item-->
+        <% @carousels.drop(1).each do |photo| %>
+        <div class="item">
+          <div class="container">
+
+            <div class="slide-wrapper">
+              <div class="col-md-6">
+                <div class="slide-image">
+                  <div class="thumbnail">
+                    <%= link_to admin_category_path(photo.category) do%>
+                      <% image_tag photo.image.url %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="slide-content">
+                  <span class="label label-warning"><%= photo.category.name %></span>
+                  <%= link_to admin_carousel_path(photo), method: :delete, data: { confirm: "確定要刪除本幻燈片嗎?"} do %>
+                    <span class="glyphicon glyphicon-remove post-icon"></span>
+                  <% end %>
+                  <%= link_to edit_admin_carousel_path(photo) do %>
+                    <span class="glyphicon glyphicon-pencil post-icon"></span>
+                  <% end %>
+                  <h3><%= photo.title %></h3>
+                  <p><%= simple_format(photo.description) %></p>
+                  <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>--> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+        
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>  
+</section>
+

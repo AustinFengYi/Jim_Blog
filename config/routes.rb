@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "blogs#index"
-  resources :blogs,only: [:index] do
+  resources :blogs,only: [:index,:show] do
     collection do
       get :travelaround
     end
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get :drawing 
     end
   end
+  resources :categories, only: [:show]
 
   namespace :admin do
     root "blogs#index"
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
       end
     end
     resources :categories
+    resources :carousels
   end
 
 

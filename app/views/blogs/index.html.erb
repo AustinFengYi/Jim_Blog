@@ -5,14 +5,13 @@
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <% @carousels.each_with_index do |photo, n| %>
+          <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+        <% end %>
       </ol>
 
       <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner" role="listbox"> 
         <!--first item-->
         <div class="item active">
           <div class="container">
@@ -21,16 +20,17 @@
               <div class="col-md-6">
                 <div class="slide-image">
                   <div class="thumbnail">
-                    <!--img src="image/slide/slide-1.jpg" alt="slide-1"-->
-                    <%= image_tag ("image/slide/slide-1.jpg"), alt: 'avatar' %>
+                    <%= link_to category_path(@carousels.first.category) do%>
+                      <% image_tag @carousels.first.image.url %>
+                    <% end %>
                   </div>
                 </div>
-              </div>
+              </div> 
 
               <div class="col-md-6">
                 <div class="slide-content">
-                  <h3>Lorem ipsum dolor sit.</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore dolor, cupiditate consectetur veritatis incidunt ratione!</p>
+                  <h3><%= @carousels.first.title %></h3>
+                  <p><%= simple_format(@carousels.first.description) %></p>
                   <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>-->
                 </div>
               </div>
@@ -38,7 +38,8 @@
           </div>
         </div>
 
-        <!--second item-->
+        <!--rest item-->
+        <% @carousels.drop(1).each do |photo| %>
         <div class="item">
           <div class="container">
 
@@ -46,70 +47,23 @@
               <div class="col-md-6">
                 <div class="slide-image">
                   <div class="thumbnail">
-                    <!--img src="image/slide/slide-2.jpg" alt="slide-1"-->
-                    <%= image_tag ("image/slide/slide-2.jpg"), alt: 'avatar' %>
+                    <%= link_to category_path(photo.category) do%>
+                      <% image_tag photo.image.url %>
+                    <% end %>
                   </div>
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="slide-content">
-                  <h3>Lorem ipsum dolor sit.</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste assumenda corporis, sequi.</p>
+                  <h3><%= photo.title %></h3>
+                  <p><%= simple_format(photo.description) %></p>
                   <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>--> </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!--third item-->
-        <div class="item">
-          <div class="container">
-            <div class="slide-wrapper">
-              <div class="col-md-6">
-                <div class="slide-image">
-                  <div class="thumbnail">
-                    <!--img src="image/slide/slide-3.jpg" alt="slide-1"-->
-                    <%= image_tag ("image/slide/slide-3.jpg"), alt: 'avatar' %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="slide-content">
-                  <h3>Research Highlight</h3>
-                  <p>In this paper, we demonstrate a simple approach of self-assembled process to form a very smooth and compacted TiO2 underlayer film from ultrafine titanium oxide (TiO2) nanocrystals with dimension of 4 nm for improving the electrical properties and device performances of dye-sensitized solar cells (DSSCs).</p>
-                  <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--fourth item-->
-        <div class="item">
-          <div class="container">
-            <div class="slide-wrapper">
-              <div class="col-md-6">
-                <div class="slide-image">
-                  <div class="thumbnail">
-                    <!--img src="image/slide/slide-4.jpg" alt="slide-1"-->
-                    <%= image_tag ("image/slide/slide-4.jpg"), alt: 'avatar' %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="slide-content">
-                  <h3>Lorem ipsum dolor sit.</h3>
-                  <!--<a href="about-content.html" class="btn btn-primary">繼續閱讀</a>-->
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    
+        <% end %>
       </div>
 
       <!-- Left and right controls -->
@@ -131,82 +85,21 @@
   <div class="container">
     <div class="post-title text-center"><h4>最新文章</h4></div>
 
-    <!-- 新增相簿list-2018-->
-    <div class="post-item col-xs-12 col-sm-6 col-md-6">
-      <!--a href="#2018"><img src="/image/post/2018.jpg" alt=""></a-->
-      <a href="#2018"><%= image_tag ("image/post/work-1.jpg"), alt: 'avatar' %></a>
-      <div class="post-shadow">
-        <h4 class="text-center">
-          <span>那一年，我在德國</span><hr>
-          <span class="glyphicon glyphicon-calendar"> 2019 / Mar / 4</span>
-        </h4>
+    <% @blogs.each do |blog| %> 
+      <div class="post-item col-xs-12 col-sm-6 col-md-4">
+        <%= link_to blog_path(blog) do%>
+          <%= image_tag blog.image.url if blog.image.url.present? %>
+          <div class="post-shadow">
+            <h4 class="text-center">
+              <span><%= blog.title %></span><hr>
+              <span class="glyphicon glyphicon-calendar"><%= blog.date %></span>
+            </h4>
+          </div>
+          <h4 style="padding-top: 15px;line-height: 25px;justify-content: left;"><%= truncate((blog.description), length: 40) %></h4>
+        <% end %>
       </div>
-      <h4 style="padding-top: 15px;line-height: 25px;justify-content: left;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, odit, tenetur maxime alias reprehenderit ipsum obcaecati eveniet eius modi quasi eum est labore deleniti, ipsam delectus distinctio natus num!(繼續閱讀..)</h4>
-    </div>
+    <% end %>
 
-    <!-- 新增相簿list-2017-->
-    <div class="post-item col-xs-12 col-sm-6 col-md-6">
-      <!--a href="#2017"><img src="/image/post/2017.jpg" alt=""></a-->
-      <a href="#2017"><%= image_tag ("image/post/work-2.jpg"), alt: 'avatar' %></a>
-      <div class="post-shadow">
-        <h4 class="text-center">
-          <span>那一年，我在德國</span><hr>
-          <span class="glyphicon glyphicon-calendar"> 2019 / Mar / 4</span>
-        </h4>
-      </div>
-      <h4 style="padding-top: 15px;line-height: 25px;justify-content: left;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, odit, tenetur maxime alias reprehenderit ipsum obcaecati eveniet eius modi quasi eum est labore deleniti, ipsam delectus distinctio natus num!(繼續閱讀..)</h4>
-    </div>
-    
-    <!-- 新增相簿list-2016-->
-    <div class="post-item col-xs-12 col-sm-6 col-md-6">
-      <!--a href="#2016"><img src="/image/post/2016.jpg" alt=""></a-->
-      <a href="#2016"><%= image_tag ("image/post/work-3.jpg"), alt: 'avatar' %></a>
-      <div class="post-shadow">
-        <h4 class="text-center">
-          <span>那一年，我在德國</span><hr>
-          <span class="glyphicon glyphicon-calendar"> 2019 / Mar / 4</span>
-        </h4>
-      </div>
-      <h4 style="padding-top: 15px;line-height: 25px;justify-content: left;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, odit, tenetur maxime alias reprehenderit ipsum obcaecati eveniet eius modi quasi eum est labore deleniti, ipsam delectus distinctio natus num!(繼續閱讀..)</h4>
-    </div>
-
-    <!-- 新增相簿list-2015-->
-    <div class="post-item col-xs-12 col-sm-6 col-md-6">
-      <!--a href="#2015"><img src="/image/post/2015.jpg" alt=""></a-->
-      <a href="#2015"><%= image_tag ("image/post/work-4.jpg"), alt: 'avatar' %></a>
-      <div class="post-shadow">
-        <h4 class="text-center">
-          <span>那一年，我在德國</span><hr>
-          <span class="glyphicon glyphicon-calendar"> 2019 / Mar / 4</span>
-        </h4>
-      </div>
-      <h4 style="padding-top: 15px;line-height: 25px;justify-content: left;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, odit, tenetur maxime alias reprehenderit ipsum obcaecati eveniet eius modi quasi eum est labore deleniti, ipsam delectus distinctio natus num!(繼續閱讀..)</h4>
-    </div>
-
-    <!-- 新增相簿list-2014-->
-    <div class="post-item col-xs-12 col-sm-6 col-md-6">
-      <!--a href="#2014"><img src="/image/post/2014.jpg" alt=""></a-->
-      <a href="#2014"><%= image_tag ("image/post/work-5.jpg"), alt: 'avatar' %></a>
-      <div class="post-shadow">
-        <h4 class="text-center">
-          <span>那一年，我在德國</span><hr>
-          <span class="glyphicon glyphicon-calendar"> 2019 / Mar / 4</span>
-        </h4>
-      </div>
-      <h4 style="padding-top: 15px;line-height: 25px;justify-content: left;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, odit, tenetur maxime alias reprehenderit ipsum obcaecati eveniet eius modi quasi eum est labore deleniti, ipsam delectus distinctio natus num!(繼續閱讀..)</h4>
-    </div>
-
-    <!-- 新增相簿list-2013-->
-    <div class="post-item col-xs-12 col-sm-6 col-md-6">
-      <!--a href="#2013"><img src="/image/post/2013.jpg" alt=""></a-->
-      <a href="#2013"><%= image_tag ("image/post/work-6.jpg"), alt: 'avatar' %></a>
-      <div class="post-shadow">
-        <h4 class="text-center">
-          <span>那一年，我在德國</span><hr>
-          <span class="glyphicon glyphicon-calendar"> 2019 / Mar / 4</span>
-        </h4>
-      </div>
-      <h4 style="padding-top: 15px;line-height: 25px;justify-content: left;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, odit, tenetur maxime alias reprehenderit ipsum obcaecati eveniet eius modi quasi eum est labore deleniti, ipsam delectus distinctio natus num!(繼續閱讀..)</h4>
   </div>
 </section>
 
