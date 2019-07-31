@@ -87,100 +87,29 @@
 
 <section class="travel-album">
   <div class="container">
-    <h4 class="text-center" style="font-size: 30px;letter-spacing: 3px;">目前分類 : <%= @category.name %> ( <%= @category.blogs.where(status: true).count %> )</h4>
+    <h4 class="text-center" style="font-size: 30px;letter-spacing: 3px;">目前分類 : <%= @category.name %> ( <%= @blogs.where(status: true).count %> )</h4>
     
     <br>
 
-    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
-      <tbody>
-        <tr><!--照片-->
-          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-6.jpg"), alt: 'avatar' %>
-          </td>
-        </tr>
+    <% @blogs.each do |blog| %> 
+      <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
+        <tbody>
+          <tr><!--照片-->
+            <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;">
+              <%= link_to blog_path(blog) do %>
+                <% image_tag blog.image.url if blog.image.url.present? %>
+              <% end %>
+            </td>
+          </tr>
 
-        <tr><!--文字-->
-          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
-        </tr>
-      </tbody>
-    </table>
+          <tr><!--文字-->
+            <td style="padding-top: 15px;"><h4 class="text-center"><%= truncate((blog.description), length: 40) %></h4></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
 
-    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
-      <tbody>
-        <tr><!--照片-->
-          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-6.jpg"), alt: 'avatar' %>
-          </td>
-        </tr>
-
-        <tr><!--文字-->
-          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
-      <tbody>
-        <tr><!--照片-->
-          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-6.jpg"), alt: 'avatar' %>
-          </td>
-        </tr>
-
-        <tr><!--文字-->
-          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
-      <tbody>
-        <tr><!--照片-->
-          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-6.jpg"), alt: 'avatar' %>
-          </td>
-        </tr>
-
-        <tr><!--文字-->
-          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
-      <tbody>
-        <tr><!--照片-->
-          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-6.jpg"), alt: 'avatar' %>
-          </td>
-        </tr>
-
-        <tr><!--文字-->
-          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
-      <tbody>
-        <tr><!--照片-->
-          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-6.jpg"), alt: 'avatar' %>
-          </td>
-        </tr>
-
-        <tr><!--文字-->
-          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table class="col-xs-12 col-sm-6 col-md-4"><!--文章-->
-      <tbody>
-        <tr><!--照片-->
-          <td align="center" style="height:150px;padding-top: 20px;padding-right: 10px;"><%= image_tag ("image/post/work-6.jpg"), alt: 'avatar' %>
-          </td>
-        </tr>
-
-        <tr><!--文字-->
-          <td style="padding-top: 15px;"><h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, quos.</h4></td>
-        </tr>
-      </tbody>
-    </table>
+    
 
   </div>
 </section>

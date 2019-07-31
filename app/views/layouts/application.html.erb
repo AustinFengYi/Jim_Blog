@@ -305,7 +305,7 @@
             <!--  清單：sebmenu (去過歐洲的國家) -->
             <div class="world-map__list--europe">
               <div class="world-map__close" style="cursor: pointer;">< BACK</div>
-              <%= link_to "Germany", travelaround_blogs_path, id:"Germany" %>
+              <a href="/categories/2" id="Germany">Germany</a>
               <%= link_to "CzechRepublic", travelaround_blogs_path, id:"CzechRepublic" %>               
             </div>
      
@@ -315,10 +315,10 @@
               <%= link_to "Vietnam", travelaround_blogs_path, id:"Vietnam" %>
               <%= link_to "Thailand", travelaround_blogs_path, id:"Thailand" %>
               <%= link_to "SouthKorea", travelaround_blogs_path, id:"SouthKorea" %>
-              <%= link_to "Taiwan", travelaround_blogs_path, id:"Taiwan" %>
+              <a href="/categories/1" id="Taiwan">Taiwan</a>
             </div>
         </div>
-    </section>
+    </section> 
     
 
     <% if flash[:notice] %>

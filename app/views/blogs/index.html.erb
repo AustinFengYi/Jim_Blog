@@ -88,7 +88,7 @@
     <% @blogs.each do |blog| %> 
       <div class="post-item col-xs-12 col-sm-6 col-md-4">
         <%= link_to blog_path(blog) do%>
-          <%= image_tag blog.image.url if blog.image.url.present? %>
+          <%= image_tag blog.image.url ,style:"height:300px;" if blog.image.url.present?   %>
           <div class="post-shadow">
             <h4 class="text-center">
               <span><%= blog.title %></span><hr>
